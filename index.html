@@ -2,10 +2,25 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Jayprakash</title>
+    <title>XSS Vulnerability Example</title>
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
 </head>
 <body>
-  Coming Soon 1
+    <h1>Welcome to the XSS Vulnerability Example</h1>
+    <form id="userForm">
+        <label for="userInput">Enter something:</label>
+        <input type="text" id="userInput" name="userInput">
+        <button type="button" id="submitBtn">Submit</button>
+    </form>
+    <div id="output"></div>
+
+    <script>
+        $(document).ready(function() {
+            $('#submitBtn').click(function() {
+                var userInput = $('#userInput').val();
+                $('#output').text(userInput); // Use text() to avoid XSS
+            });
+        });
+    </script>
 </body>
 </html>
