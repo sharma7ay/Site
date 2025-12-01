@@ -14,9 +14,14 @@
             line-height: 1.6;
         }
         header {
-            text-align: center;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
             padding: 2rem;
             border-bottom: 1px solid #00ff00;
+        }
+        .name-title {
+            text-align: left;
         }
         header h1 {
             margin: 0;
@@ -45,9 +50,6 @@
         }
         .contact-button:hover {
             border-color: #00ff88;
-        }
-        #photo {
-            margin-top: 1rem;
         }
         #photo img {
             width: 150px;
@@ -98,8 +100,15 @@
             border-top: 1px solid #00ff00;
         }
         @media (max-width: 600px) {
+            header {
+                flex-direction: column;
+                text-align: center;
+            }
+            .name-title {
+                text-align: center;
+            }
             header h1 { font-size: 2rem; }
-            #photo img { width: 120px; height: 120px; }
+            #photo img { width: 120px; height: 120px; margin-top: 1rem; }
             section { padding: 1rem; }
             .button-row { flex-direction: column; align-items: center; }
             .contact-button { font-size: 0.9rem; padding: 0.4rem 0.8rem; margin-bottom: 0.5rem; }
@@ -108,15 +117,17 @@
 </head>
 <body>
     <header>
-        <h1>Jay Prakash Sharma</h1>
-        <p>Offensive Security Specialist | Penetration Tester</p>
-        <div class="button-row">
-            <button class="contact-button" onclick="window.location.href='sharma7ay@gmail.com'">Email</button>
-            <button class="contact-button" onclick="window.open('https://linkedin.com/in/sharma7ay', '_blank')">LinkedIn</button>
-            <button class="contact-button" onclick="window.open('https://github.com/sharma7ay', '_blank')">GitHub</button>
+        <div class="name-title">
+            <h1>Jay Prakash Sharma</h1>
+            <p>Offensive Security Specialist | Penetration Tester</p>
+            <div class="button-row">
+                <button class="contact-button" onclick="window.location.href='mailto:sharma7ay@gmail.com'">Email</button>
+                <button class="contact-button" onclick="window.open('https://linkedin.com/in/sharma7ay', '_blank')">LinkedIn</button>
+                <button class="contact-button" onclick="window.open('https://github.com/sharma7ay', '_blank')">GitHub</button>
+            </div>
         </div>
         <div id="photo">
-            <img src="Jay Prakash Sharma.jpg" alt="Professional photo of [Your Name]">
+            <img src="Jay Prakash Sharma.jpg" alt="Professional photo of Jay Prakash Sharma">
         </div>
     </header>
     
@@ -183,4 +194,3 @@
     </footer>
 </body>
 </html>
-
