@@ -2,26 +2,184 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <title>XSS Vulnerability Example</title>
-    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
-    <script src="./youtube.js"></script>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Jay Prakash Sharma - Offensive Security Portfolio</title>
+    <style>
+        body {
+            font-family: 'Courier New', monospace;
+            margin: 0;
+            padding: 0;
+            background-color: #000000;
+            color: #00ff00;
+            line-height: 1.6;
+        }
+        header {
+            text-align: center;
+            padding: 2rem;
+            border-bottom: 1px solid #00ff00;
+        }
+        header h1 {
+            margin: 0;
+            font-size: 2.5rem;
+            color: #00ff00;
+        }
+        header p {
+            font-size: 1.2rem;
+            margin-top: 0.5rem;
+        }
+        .button-row {
+            margin-top: 1rem;
+            display: flex;
+            justify-content: center;
+            gap: 1rem;
+        }
+        .contact-button {
+            background-color: #000000;
+            color: #00ff00;
+            border: 2px solid #00ff00;
+            padding: 0.5rem 1rem;
+            font-family: 'Courier New', monospace;
+            font-size: 1rem;
+            cursor: pointer;
+            transition: border-color 0.3s;
+        }
+        .contact-button:hover {
+            border-color: #00ff88;
+        }
+        #photo {
+            margin-top: 1rem;
+        }
+        #photo img {
+            width: 150px;
+            height: 150px;
+            border-radius: 50%;
+            object-fit: cover;
+            border: 2px solid #00ff00;
+        }
+        section {
+            padding: 1.5rem;
+            max-width: 800px;
+            margin: 0 auto;
+            border-bottom: 1px solid #333;
+        }
+        section h2 {
+            color: #00ff00;
+            margin-top: 0;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+        }
+        .project, .cert, .exp {
+            margin-bottom: 1rem;
+            padding: 1rem;
+            background-color: #111;
+            border: 1px solid #333;
+        }
+        .project h3, .cert h3, .exp h3 {
+            margin-top: 0;
+            color: #00ff00;
+        }
+        ul {
+            list-style-type: none;
+            padding: 0;
+        }
+        ul li {
+            margin-bottom: 0.5rem;
+        }
+        a {
+            color: #00ff00;
+            text-decoration: none;
+        }
+        a:hover {
+            text-decoration: underline;
+        }
+        footer {
+            text-align: center;
+            padding: 1rem;
+            border-top: 1px solid #00ff00;
+        }
+        @media (max-width: 600px) {
+            header h1 { font-size: 2rem; }
+            #photo img { width: 120px; height: 120px; }
+            section { padding: 1rem; }
+            .button-row { flex-direction: column; align-items: center; }
+            .contact-button { font-size: 0.9rem; padding: 0.4rem 0.8rem; margin-bottom: 0.5rem; }
+        }
+    </style>
 </head>
 <body>
-    <h1>Welcome to the XSS Vulnerability Example</h1>
-    <form id="userForm">
-        <label for="userInput">Enter something:</label>
-        <input type="text" id="userInput" name="userInput">
-        <button type="button" id="submitBtn">Submit</button>
-    </form>
-    <div id="output"></div>
-
-    <script>
-        $(document).ready(function() {
-            $('#submitBtn').click(function() {
-                var userInput = $('#userInput').val();
-                $('#output').text(userInput); // Use text() to avoid XSS
-            });
-        });
-    </script>
+    <header>
+        <h1>Jay Prakash Sharma</h1>
+        <p>Offensive Security Specialist | Penetration Tester</p>
+        <div class="button-row">
+            <button class="contact-button" onclick="window.location.href='sharma7ay@gmail.com'">Email</button>
+            <button class="contact-button" onclick="window.open('https://linkedin.com/in/sharma7ay', '_blank')">LinkedIn</button>
+            <button class="contact-button" onclick="window.open('https://github.com/sharma7ay', '_blank')">GitHub</button>
+        </div>
+        <div id="photo">
+            <img src="your-photo.jpg" alt="Professional photo of [Your Name]">
+        </div>
+    </header>
+    
+    <section id="about">
+        <h2>About Me</h2>
+        <p>> I'm a security researcher with 3 years of experience in offensive security. I specialize in identifying vulnerabilities in systems, networks, and applications through ethical hacking techniques. My goal is to help organizations strengthen their defenses by simulating real-world attacks. I hold certifications like OSCP and CEH, and I'm passionate about staying ahead of emerging threats.</p>
+        <p>> Key Focus: Web app security, network penetration, and red teaming.</p>
+    </section>
+    
+    <section id="skills">
+        <h2>Skills</h2>
+        <ul>
+            <li>> Tools: Metasploit, Burp Suite, Nmap, Wireshark, Kali Linux</li>
+            <li>> Techniques: Vulnerability assessment, exploit development, social engineering, wireless security</li>
+            <li>> Languages: Python, Bash, SQL, JavaScript</li>
+            <li>> Other: Risk analysis, report writing, incident response</li>
+        </ul>
+    </section>
+    
+    <section id="certifications">
+        <h2>Certifications</h2>
+       <!-- <div class="cert">
+            <h3>Offensive Security Certified Professional (OSCP)</h3>
+            <p>> Issued by Offensive Security. Demonstrates hands-on penetration testing skills.</p>
+        </div> -->
+        <div class="cert">
+            <h3>Certified Ethical Hacker (CEH)</h3>
+            <p>> Issued by EC-Council. Covers ethical hacking methodologies and tools.</p>
+        </div>
+        <!-- Add more as needed -->
+    </section>
+    
+    <section id="projects">
+        <h2>Projects</h2>
+        <p>> Note: All projects are conducted ethically with permission. Details are high-level to maintain confidentiality.</p>
+        <div class="project">
+            <h3>Web Application Vulnerability Assessment</h3>
+            <p>> Conducted a full-scope pentest on a client's e-commerce platform, identifying SQL injection and XSS vulnerabilities. Provided remediation recommendations, reducing risk by 80%.</p>
+            <p>> Technologies: Burp Suite, OWASP Top 10.</p>
+        </div>
+        <div class="project">
+            <h3>Network Penetration Test</h3>
+            <p>> Simulated a red team attack on a corporate network, exploiting misconfigurations to gain unauthorized access. Delivered a detailed report with actionable fixes.</p>
+            <p>> Technologies: Nmap, Metasploit.</p>
+        </div>
+        <!-- Add more projects here -->
+    </section>
+    
+    <section id="experience">
+        <h2>Experience</h2>
+        <div class="exp">
+            <h3>Security Researcher at Hackerone</h3>
+            <p>> [Dates, e.g., 2020-Present]. Lead security assessments for clients in finance and tech sectors. Collaborate with blue teams to improve defenses.</p>
+        </div>
+        <!--<div class="exp">
+            <h3>Security Analyst at [Previous Company]</h3>
+            <p>> [Dates]. Performed vulnerability scans and incident response. Contributed to SOC operations.</p>
+        </div> -->
+        <!-- Add more -->
+    </section>
+    
+    <footer>
+        <p>&copy; 2026 sharma_jay. All rights reserved. Ethical hacking only.</p>
+    </footer>
 </body>
 </html>
